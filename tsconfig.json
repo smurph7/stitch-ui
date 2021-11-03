@@ -26,6 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.mdx",
+    "mdx.d.ts",
     ".eslintrc.js"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }
