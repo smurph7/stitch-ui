@@ -1,0 +1,203 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description
+} from '@storybook/addon-docs';
+
+import { Button } from '../components/Button';
+
+<Meta
+  title="Button"
+  component={Button}
+  argTypes={{
+    children: 'Default',
+    variant: 'solid',
+    colorScheme: 'sage',
+    size: 'small',
+    disabled: false
+  }}
+/>
+
+# Button
+
+The Button component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+
+export const Template = args => <Button {...args} />;
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      children: 'Default'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+### Button Sizes
+
+Use the `size` prop to change the size of the button. You can set the value to `small`, `medium` or `large`.
+
+<Canvas>
+  <Story
+    name="Small"
+    args={{
+      children: 'Small',
+      colorScheme: 'green'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Medium"
+    args={{
+      children: 'Medium',
+      variant: 'solid',
+      colorScheme: 'green',
+      size: 'medium',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Large"
+    args={{
+      children: 'Large',
+      variant: 'solid',
+      colorScheme: 'green',
+      size: 'large',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Button Variants
+
+Use the `variant` prop to change the visual style of the Button. You can set the value to `solid`, `ghost`, `outline`, `link`, or `unstyled`.
+
+<Canvas>
+  <Story
+    name="Solid"
+    args={{
+      children: 'Solid',
+      variant: 'solid',
+      colorScheme: 'blue',
+      size: 'medium',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Outline"
+    args={{
+      children: 'Outline',
+      variant: 'outline',
+      colorScheme: 'blue',
+      size: 'medium',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Ghost"
+    args={{
+      children: 'Ghost',
+      variant: 'ghost',
+      colorScheme: 'blue',
+      size: 'medium',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Link"
+    args={{
+      children: 'Link',
+      variant: 'link',
+      colorScheme: 'blue',
+      size: 'medium',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Unstyled"
+    args={{
+      children: 'Unstyled',
+      variant: 'unstyled',
+      colorScheme: 'blue',
+      size: 'medium',
+      disabled: false
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom Styling
+
+You can override any style of the Button via `css` props.
+
+<Canvas>
+  <Story
+    name="Custom CSS"
+    args={{
+      children: 'Custom CSS',
+      size: 'medium',
+      css: {
+        backgroundColor: '$green11',
+        color: 'white',
+        borderRadius: '$round',
+        '&:hover': { backgroundColor: '$red11' }
+      }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Accessibility
+
+- Button has `role` of button
+- When Button has focus, `Space` or `Enter` activates it
+
+### Props
+
+##### `colorScheme`
+
+Type  
+`"gray" | "mauve" | "slate" | "sage" | "olive" | "sand" | "tomato" | "red" | "crimson" | "pink" |`
+`"plum" | "purple" | "violet" | "indigo" | "blue" | "sky" | "mint" | "cyan" | "teal" |`
+`"green" | "grass" | "lime" | "yellow" | "amber" | "orange" | "brown" | "bronze" | "gold"`
+
+Default `"sage"`
+
+##### `variant`
+
+Type `"link" | "outline" | "solid" | "ghost" | "unstyled"`
+
+Default `"solid"`
+
+##### `size`
+
+Type `"small" | "medium" | "large"`
+
+Default `"small"`
+
+##### `disabled`
+
+Type `boolean`
+
+Default `false`
