@@ -12,6 +12,52 @@ import { Box, Button } from '../../components';
 
 # Box
 
-Box is the most abstract component on top of which all other components are built. By default, it renders a div element.
+Box is the most abstract component on top of which all other components are built. By default, it renders a `div` element.
 
 [<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Box/Box.tsx)
+
+export const Template = args => <Box {...args} />;
+
+<Canvas>
+  <Story
+    name="Box"
+    args={{
+      children: 'This is a box',
+      css: {
+        bg: '$mint5',
+        p: '$5',
+        fontFamily: '$body'
+      }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Styling
+
+You can override any style of the Box via `css` props.
+
+### `as` prop
+
+You can use the `as` prop to change the element render.
+
+<Canvas>
+  <Story
+    name="as Prop"
+    args={{
+      as: 'button',
+      children: 'This is a box as a button',
+      css: {
+        p: '$2',
+        bg: '$mint5',
+        fontFamily: '$body',
+        borderRadius: '$2',
+        border: 'none',
+        cursor: 'pointer'
+      }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
