@@ -1,0 +1,265 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+  Source
+} from '@storybook/addon-docs';
+
+import { Flex, Button } from '../../components';
+
+<Meta
+  title="Layout/Flex"
+  component={Flex}
+  argTypes={{
+    direction: {
+      options: ['row', 'column', 'rowReverse', 'columnReverse'],
+      control: { type: 'select' },
+      defaultValue: 'row'
+    },
+    align: {
+      options: ['start', 'center', 'end', 'stretch', 'baseline'],
+      control: { type: 'select' },
+      defaultValue: 'stretch'
+    },
+    justify: {
+      options: ['start', 'center', 'end', 'space-between', 'space-around'],
+      control: { type: 'select' },
+      defaultValue: 'start'
+    },
+    wrap: {
+      options: ['noWrap', 'wrap', 'wrapReverse'],
+      control: { type: 'select' },
+      defaultValue: 'noWrap'
+    },
+    gap: {
+      options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      control: { type: 'select' },
+      defaultValue: 0
+    },
+    as: {
+      table: {
+        disable: true
+      }
+    },
+    ref: {
+      table: {
+        disable: true
+      }
+    },
+    css: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+/>
+
+# Flex
+
+Flex is `Box` with `display: flex` and comes with helpful style shorthand. It renders a `div` element.
+
+[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Flex.tsx)
+
+export const Template = args => <Flex {...args} />;
+
+export const RowTemplate = args => (
+  <Flex css={{ height: '150px' }} {...args}>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$green5', width: '30%', height: '100%' }}
+    >
+      Box 1
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$blue5', width: '20%', height: '100%' }}
+    >
+      Box 2
+    </Flex>
+    <Flex css={{ bg: '$tomato5', width: '10%', height: '100%' }}>Box 3</Flex>
+  </Flex>
+);
+
+export const ColumnTemplate = args => (
+  <Flex direction="column" css={{ height: '150px' }}>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$green5', height: '100%' }}
+    >
+      Box 1
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$blue5', height: '100%' }}
+    >
+      Box 2
+    </Flex>
+    <Flex css={{ bg: '$tomato5', height: '100%' }}>Box 3</Flex>
+  </Flex>
+);
+
+export const SpaceTemplate = args => (
+  <Flex gap={5} css={{ height: '150px' }}>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$green5', width: '100%', height: '100%' }}
+    >
+      Box 1
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$blue5', width: '100%', height: '100%' }}
+    >
+      Box 2
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      css={{ bg: '$tomato5', width: '100%', height: '100%' }}
+    >
+      Box 3
+    </Flex>
+  </Flex>
+);
+
+### Usage
+
+##### Row
+
+<Canvas>
+  <Story name="Row" args={{ direction: 'row' }}>
+    {RowTemplate.bind({})}
+  </Story>
+</Canvas>
+
+##### Column
+
+<Canvas>
+  <Story name="Column" args={{ direction: 'column' }}>
+    {ColumnTemplate.bind({})}
+  </Story>
+</Canvas>
+
+##### Space
+
+<Canvas>
+  <Story name="Space" args={{ gap: 5 }}>
+    {SpaceTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Props
+
+##### `direction`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for flexDirection style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"row" | "column" | "rowReverse" | "columnReverse"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"row"</code>
+    </td>
+  </tr>
+</table>
+
+##### `align`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for alignItems style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"start" | "center" | "end" | "stretch" | "baseline"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"stretch"</code>
+    </td>
+  </tr>
+</table>
+
+##### `justify`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for justifyContent style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"start" | "center" | "end" | "space-between" | "space-around"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"start"</code>
+    </td>
+  </tr>
+</table>
+
+##### `wrap`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for flexWrap style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"noWrap" | "wrap" | "wrapReverse"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"noWrap"</code>
+    </td>
+  </tr>
+</table>
+
+##### `gap`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Spacing between items</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>Number: 1 - 11</td>
+  </tr>
+</table>

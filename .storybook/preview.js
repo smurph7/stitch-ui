@@ -1,9 +1,19 @@
+import React from 'react';
+
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-}
+      date: /Date$/
+    }
+  }
+};
+
+export const decorators = [
+  Story => (
+    <div style={{ fontFamily: 'Inter, sans-serif' }}>
+      <Story />
+    </div>
+  )
+];

@@ -1,8 +1,8 @@
 // using functions + css for colour theming until stitches gets dynamic variants: https://github.com/modulz/stitches/pull/721
 import * as React from 'react';
 
-import { styled } from '../../stitches.config';
-import { ColorScheme } from '../../../theme/types';
+import { styled } from '../stitches.config';
+import { ColorScheme } from '../../theme/types';
 
 type Size = 'small' | 'medium' | 'large';
 type VariantType = 'unstyled' | 'solid' | 'outline' | 'ghost' | 'link';

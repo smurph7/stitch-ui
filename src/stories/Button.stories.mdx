@@ -24,7 +24,7 @@ import { Button } from '../components/Button';
 
 The Button component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
 
-[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Button/Button.tsx)
+[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Button.tsx)
 
 export const Template = args => <Button {...args} />;
 
@@ -179,27 +179,83 @@ You can override any style of the Button via `css` props.
 
 ##### `colorScheme`
 
-Type  
-`"gray" | "mauve" | "slate" | "sage" | "olive" | "sand" | "tomato" | "red" | "crimson" | "pink" |`
-`"plum" | "purple" | "violet" | "indigo" | "blue" | "sky" | "mint" | "cyan" | "teal" |`
-`"green" | "grass" | "lime" | "yellow" | "amber" | "orange" | "brown" | "bronze" | "gold"`
-
-Default `"sage"`
+<table>
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>
+        "gray" | "mauve" | "slate" | "sage" | "olive" | "sand" | "tomato" |
+        "red" | "crimson" | "pink" |
+      </code>
+      <code>
+        "plum" | "purple" | "violet" | "indigo" | "blue" | "sky" | "mint" |
+        "cyan" | "teal" |
+      </code>
+      <code>
+        "green" | "grass" | "lime" | "yellow" | "amber" | "orange" | "brown" |
+        "bronze" | "gold"
+      </code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"sage"</code>
+    </td>
+  </tr>
+</table>
 
 ##### `variant`
 
-Type `"link" | "outline" | "solid" | "ghost" | "unstyled"`
-
-Default `"solid"`
+<table>
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"link" | "outline" | "solid" | "ghost" | "unstyled"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"solid"</code>
+    </td>
+  </tr>
+</table>
 
 ##### `size`
 
-Type `"small" | "medium" | "large"`
-
-Default `"small"`
+<table>
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"small" | "medium" | "large"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"small"</code>
+    </td>
+  </tr>
+</table>
 
 ##### `disabled`
 
-Type `boolean`
-
-Default `false`
+<table>
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>boolean</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>false</code>
+    </td>
+  </tr>
+</table>

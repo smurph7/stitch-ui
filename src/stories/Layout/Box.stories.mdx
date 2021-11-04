@@ -8,13 +8,23 @@ import {
 
 import { Box, Button } from '../../components';
 
-<Meta title="Layout/Box" component={Box} />
+<Meta
+  title="Layout/Box"
+  component={Box}
+  argTypes={{
+    ref: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+/>
 
 # Box
 
 Box is the most abstract component on top of which all other components are built. By default, it renders a `div` element.
 
-[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Box/Box.tsx)
+[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Box.tsx)
 
 export const Template = args => <Box {...args} />;
 
@@ -27,6 +37,13 @@ export const Template = args => <Box {...args} />;
         bg: '$mint5',
         p: '$5',
         fontFamily: '$body'
+      }
+    }}
+    argTypes={{
+      as: {
+        table: {
+          disable: true
+        }
       }
     }}
   >
