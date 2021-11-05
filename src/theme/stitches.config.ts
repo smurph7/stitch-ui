@@ -98,7 +98,7 @@ const defaultTheme = {
     hiContrast: '$sage12',
     loContrast: '$sage1',
     canvas: 'hsl(0 0% 93%)',
-    panel: '$sage1',
+    panel: '$sage3',
     transparentPanel: 'hsl(0 0% 0% / 97%)',
     shadowLight: 'hsl(206 22% 7% / 35%)',
     shadowDark: 'hsl(206 22% 7% / 20%)'
@@ -165,7 +165,7 @@ const defaultTheme = {
   transitions: {}
 };
 
-export const { styled, getCssText, createTheme, css } = createStitches({
+export const { styled, getCssText, createTheme, css, config } = createStitches({
   theme: defaultTheme,
   media: {
     bp1: '(min-width: 0px)',
@@ -279,3 +279,5 @@ export const darkTheme = createTheme('dark-theme', {
     shadowDark: 'hsl(206 22% 7% / 20%)'
   }
 });
+
+export type CSS = Stitches.CSS<typeof config>;

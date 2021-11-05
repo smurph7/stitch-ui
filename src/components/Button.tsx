@@ -7,14 +7,14 @@ import { ColorScheme } from '../theme/types';
 type Size = 'small' | 'medium' | 'large';
 type VariantType = 'unstyled' | 'solid' | 'outline' | 'ghost' | 'link';
 
-interface ButtonProps {
-  variant: VariantType;
+type ButtonProps = {
+  variant?: VariantType;
   colorScheme?: ColorScheme;
   size?: Size;
   children?: any;
   disabled?: boolean;
   props?: any;
-}
+};
 
 function solid(colorScheme: ColorScheme) {
   return {

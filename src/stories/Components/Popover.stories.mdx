@@ -1,0 +1,320 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+  Source
+} from '@storybook/addon-docs';
+
+import { Button, Flex, Box } from '../../components';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from '../../components/Popover.tsx';
+
+<Meta
+  title="Components/Popover"
+  component={Popover}
+  argTypes={{
+    trigger: {
+      description: 'The button that toggles the popover.',
+      options: ['onClick', 'hover'],
+      control: { type: 'select' },
+      defaultValue: 'onClick'
+    },
+    side: {
+      description:
+        'The preferred side of the anchor to render against when open.',
+      options: ['top', 'right', 'left', 'bottom'],
+      control: { type: 'select' },
+      defaultValue: 'bottom'
+    },
+    hideArrow: {
+      description:
+        'Show/hide an optional arrow element to render alongside the popover, used to help visually link the anchor.',
+      control: { type: 'boolean' },
+      defaultValue: false
+    },
+    buttonText: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+/>
+
+# Popover
+
+Popover is a non-modal dialog that floats around a trigger. It is used to display contextual information to the user, and is be paired with a trigger element that can be clicked or hovered over.
+
+This component uses the [Radix Primitive Popover](https://www.radix-ui.com/docs/primitives/components/popover) as a base.
+
+[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Popover.tsx)
+
+### Anatomy
+
+- `Popover:` The wrapper that provides props, state, and context to its children.
+- `PopoverTrigger`: Used to wrap the trigger element.
+- `PopoverContent`: The popover itself.
+- `PopoverClose`: A button to close the popover.
+
+```javascript
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverClose
+} from '@stich-ui';
+```
+
+### Usage
+
+export const Template = args => (
+  <Popover trigger={args.trigger}>
+    <PopoverTrigger asChild>
+      <Button size="medium" colorScheme="tomato">
+        {args.buttonText}
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent
+      side={args.side}
+      hideArrow={args.hideArrow}
+      css={{ bg: '$red9', color: 'white', p: '$2' }}
+    >
+      <Box>Easy!</Box>
+    </PopoverContent>
+  </Popover>
+);
+
+<Canvas>
+  <Story name="Click" args={{ buttonText: 'Click Me' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Hover" args={{ trigger: 'hover', buttonText: 'Hover over me' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Click" />
+
+### Controlled Usage
+
+You can control the opening and closing of the popover by passing the open, and onOpenChange props.
+
+export const ControlledUsage = args => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const open = () => setIsOpen(!isOpen);
+  const close = () => setIsOpen(false);
+  return (
+    <Flex gap={5}>
+      <Button colorScheme="sky" onClick={open}>
+        Trigger
+      </Button>
+      <Popover open={isOpen} onOpenChange={open}>
+        <PopoverTrigger asChild>
+          <Button colorScheme="pink">Popover Target</Button>
+        </PopoverTrigger>
+        <PopoverContent
+          side="right"
+          css={{ bg: '$pink9', color: 'white', p: '$2' }}
+        >
+          <Box>Over here!</Box>
+        </PopoverContent>
+      </Popover>
+    </Flex>
+  );
+};
+
+<Canvas>
+  <Story name="Controlled">{ControlledUsage.bind({})}</Story>
+</Canvas>
+
+```javascript
+const [isOpen, setIsOpen] = React.useState(false);
+const open = () => setIsOpen(!isOpen);
+const close = () => setIsOpen(false);
+return (
+  <Flex gap={5}>
+    <Button colorScheme="sky" onClick={open}>
+      Trigger
+    </Button>
+    <Popover open={isOpen} onOpenChange={open}>
+      <PopoverTrigger asChild>
+        <Button colorScheme="pink">Popover Target</Button>
+      </PopoverTrigger>
+      <PopoverContent
+        side="right"
+        css={{ bg: '$pink9', color: 'white', p: '$2' }}
+      >
+        <Box>Over here!</Box>
+      </PopoverContent>
+    </Popover>
+  </Flex>
+);
+```
+
+### Placement
+
+You can change the placement of the popover by passing the `side` prop to `PopoverContent`.
+
+<Canvas>
+  <Story name="Side" args={{ side: 'top', buttonText: 'Button' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Props
+
+#### Popover
+
+Contains all the parts of a popover.
+
+##### `defaultOpen`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>
+      The open state of the popover when it is initially rendered. Use when you
+      do not need to control its open state.
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>boolean</code>
+    </td>
+  </tr>
+</table>
+
+##### `open`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>
+      The controlled open state of the popover. Must be used in conjunction with{' '}
+      <code>onOpenChange</code>.
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>boolean</code>
+    </td>
+  </tr>
+</table>
+
+##### `onOpenChange`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Event handler called when the open state of the popover changes.</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>function</code>: <code>(open: boolean) => void</code>
+    </td>
+  </tr>
+</table>
+
+#### PopoverTrigger
+
+The button that toggles the popover. By default, the `Popover.Content` will position itself against the trigger.
+
+##### `asChild`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>
+      Change the component to the HTML tag or custom component of the only
+      child. This will merge the original component props with the props of the
+      supplied element/component and change the underlying DOM node.
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>boolean</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>false</code>
+    </td>
+  </tr>
+</table>
+
+#### PopoverContent
+
+The component that pops out when the popover is open.
+
+##### `side`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>The preferred side of the anchor to render against when open.</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"top" | "right" | "bottom" | "left"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"bottom"</code>
+    </td>
+  </tr>
+</table>
+
+#### PopoverClose
+
+The button that closes an open popover.
+
+##### `asChild`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>
+      Change the component to the HTML tag or custom component of the only
+      child. This will merge the original component props with the props of the
+      supplied element/component and change the underlying DOM node.
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>boolean</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>false</code>
+    </td>
+  </tr>
+</table>
+
+See [Radix](https://www.radix-ui.com/docs/primitives/components/popover) for more detailed information.
