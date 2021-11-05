@@ -66,7 +66,7 @@ import {
   PopoverTrigger,
   PopoverContent,
   PopoverClose
-} from '@stich-ui';
+} from '@stich-ui/react';
 ```
 
 ### Usage
@@ -108,14 +108,13 @@ You can control the opening and closing of the popover by passing the open, and 
 
 export const ControlledUsage = args => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const open = () => setIsOpen(!isOpen);
-  const close = () => setIsOpen(false);
+  const onOpenChange = () => setIsOpen(!isOpen);
   return (
     <Flex gap={5}>
       <Button colorScheme="sky" onClick={open}>
         Trigger
       </Button>
-      <Popover open={isOpen} onOpenChange={open}>
+      <Popover open={isOpen} onOpenChange={onOpenChange}>
         <PopoverTrigger asChild>
           <Button colorScheme="pink">Popover Target</Button>
         </PopoverTrigger>
