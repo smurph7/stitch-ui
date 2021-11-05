@@ -1,0 +1,251 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+  Source
+} from '@storybook/addon-docs';
+
+import { Grid, Flex, Button } from '../../components';
+
+<Meta
+  title="Layout/Grid"
+  component={Grid}
+  argTypes={{
+    align: {
+      options: ['start', 'center', 'end', 'stretch', 'baseline'],
+      control: { type: 'select' },
+      defaultValue: 'start'
+    },
+    justify: {
+      options: ['start', 'center', 'end', 'space-between', 'space-around'],
+      control: { type: 'select' },
+      defaultValue: 'start'
+    },
+    flow: {
+      options: ['row', 'column', 'dense', 'rowDense', 'columnDense'],
+      control: { type: 'select' },
+      defaultValue: 'row'
+    },
+    columns: {
+      options: [1, 2, 3, 4, 5],
+      control: { type: 'number' },
+      defaultValue: 1
+    },
+    gap: {
+      options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      control: { type: 'number' },
+      defaultValue: 0
+    },
+    gapX: {
+      options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      control: { type: 'number' },
+      defaultValue: 0
+    },
+    gapY: {
+      options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      control: { type: 'number' },
+      defaultValue: 0
+    },
+    as: {
+      table: {
+        disable: true
+      }
+    },
+    ref: {
+      table: {
+        disable: true
+      }
+    },
+    css: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+/>
+
+# Grid
+
+Grid is Box with `display: grid` and it comes with helpful style shorthand. It renders a `div` element.
+
+[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Grid.tsx)
+
+export const Template = args => (
+  <Grid justify="center" {...args}>
+    <Flex justify="center" css={{ bg: '$blue7', height: '50px' }} />
+    <Flex justify="center" css={{ bg: '$blue7', height: '50px' }} />
+    <Flex justify="center" css={{ bg: '$blue7', height: '50px' }} />
+    <Flex justify="center" css={{ bg: '$blue7', height: '50px' }} />
+    <Flex justify="center" css={{ bg: '$blue7', height: '50px' }} />
+    <Flex justify="center" css={{ bg: '$blue7', height: '50px' }} />
+  </Grid>
+);
+
+### Usage
+
+##### `columns={3} gap={6}`
+
+<Canvas>
+  <Story name="Grid" args={{ columns: 3, gap: 6 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Props
+
+##### `align`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for alignItems style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"start" | "center" | "end" | "stretch" | "baseline"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"stretch"</code>
+    </td>
+  </tr>
+</table>
+
+##### `justify`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for justifyContent style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"start" | "center" | "end" | "space-between"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"start"</code>
+    </td>
+  </tr>
+</table>
+
+##### `flow`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for gridAutoFlow style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>"row" | "column" | "dense" | "rowDense" | "columnDense"</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>"row"</code>
+    </td>
+  </tr>
+</table>
+
+##### `columns`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for gridTemplateColumns style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>Number: 1-5</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>1</code>
+    </td>
+  </tr>
+</table>
+
+##### `gap`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Spacing between items</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>Number: 1 - 11</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>0</code>
+    </td>
+  </tr>
+</table>
+
+##### `gapX`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Horizontal spacing between items</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>Number: 1 - 11</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>0</code>
+    </td>
+  </tr>
+</table>
+
+##### `gapY`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Vertical spacing between items</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>Number: 1 - 11</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Default</td>
+    <td>
+      <code>0</code>
+    </td>
+  </tr>
+</table>
