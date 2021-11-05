@@ -1,6 +1,6 @@
 # Getting Started
 
-This library uses [Stitches](https://stitches.dev/docs/introduction) and [Radix Colors](https://www.radix-ui.com/docs/colors/palette-composition/the-scales) for styling and theming.
+This library uses [Stitches](https://stitches.dev/docs/introduction) and [Radix Colors](https://www.radix-ui.com/docs/colors/palette-composition/the-scales) for styling and theming. It is inspired by [Chakra UI](https://chakra-ui.com/).
 
 The theme is included in the library. This is still a work in progress and support for extending and customising themes will be added later.
 
