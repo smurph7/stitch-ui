@@ -1,15 +1,25 @@
 {
-  "name": "stitch-ui",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@smurphdev/stitch-ui",
+  "version": "1.0.0",
+  "private": false,
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "description": "A component library demo using Stitches and Radix",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build": "rollup -c"
   },
+  "keywords": [
+    "storybook",
+    "react",
+    "typescript"
+  ],
+  "files": ["/lib"],
+  "author": "smurphdev",
+  "license": "MIT",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -33,10 +43,16 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
     "@storybook/addon-a11y": "^6.3.12",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
@@ -65,7 +81,24 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
+    "postcss": "^8.3.11",
     "prettier": "^2.3.2",
-    "react-test-renderer": "^17.0.2"
-  }
+    "react-test-renderer": "^17.0.2",
+    "rollup": "^2.34.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.1.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smurph7/stitch-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/smurph7/stitch-ui/issues"
+  },
+  "homepage": "https://github.com/smurph7/stitch-ui#readme"
 }
