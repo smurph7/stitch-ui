@@ -1,0 +1,78 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description
+} from '@storybook/addon-docs';
+
+import { Container, Flex, Button } from '../../components';
+
+<Meta title="Layout/Container" component={Container} />
+
+# Container
+
+Containers are used to constrain a content's width to the current breakpoint, while keeping it fluid.
+
+[<Button size='medium'>View Source</Button>](https://github.com/smurph7/stitch-ui/blob/main/src/components/Container.tsx)
+
+### Usage
+
+To contain any piece of content, wrap it in the `Container` component.
+
+<Canvas>
+  <Story name="Container">
+    <Container size={3}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis sem
+      diam. Proin nec purus quis tellus facilisis faucibus at sed metus. Aliquam
+      erat volutpat. Mauris vitae pulvinar nibh. Nulla at risus vitae magna
+      blandit aliquet. Nulla quis porttitor augue, a feugiat elit. Vivamus
+      sollicitudin metus elit, in faucibus sapien interdum a. Donec lorem erat,
+      efficitur vitae dui et, venenatis fringilla leo.
+    </Container>
+  </Story>
+</Canvas>
+
+### Container size
+
+To set the container size, use the `size` prop.
+
+<Canvas>
+  <Story name="Size">
+    <Flex direction="column" gap={5}>
+      <Container size={1} css={{ border: '1px solid black', width: '100%' }}>
+        Size 1
+      </Container>
+      <Container size={2} css={{ border: '1px solid black', width: '100%' }}>
+        Size 2
+      </Container>
+      <Container size={3} css={{ border: '1px solid black', width: '100%' }}>
+        Size 3
+      </Container>
+      <Container size={4} css={{ border: '1px solid black', width: '100%' }}>
+        Size 4
+      </Container>
+      <Container size={5} css={{ border: '1px solid black', width: '100%' }}>
+        Size 5
+      </Container>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Props
+
+##### `size`
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Shorthand for maxWidth style prop</td>
+  </tr>
+  <tr />
+  <tr>
+    <td>Type</td>
+    <td>
+      <code>number</code>
+    </td>
+  </tr>
+</table>
