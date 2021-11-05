@@ -1,0 +1,333 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description
+} from '@storybook/addon-docs';
+
+import { Box, Button } from '../../components';
+
+<Meta title="Layout/Theme" component={Box} />
+
+# Default Theme
+
+The theme object is where you define your application's color palette, type scale, font stacks, breakpoints, border radius values, and more.
+
+This library uses [Stitches](https://stitches.dev/docs/introduction) and [Radix Colors](https://www.radix-ui.com/docs/colors/palette-composition/the-scales).
+
+### Dark Theme
+
+Light scales apply their CSS variables to the `:root` element. Dark scales apply their CSS variables to the `.dark-theme` class.
+
+### Changing Theme
+
+Use hooks to toggle the theme at the click of a button!
+
+```javascript
+import { darkTheme } from '../stitches.config';
+
+const [theme, setTheme] = React.useState('theme-default');
+
+React.useEffect(() => {
+  document.body.classList.remove('theme-default', darkTheme);
+  theme === 'theme-default' ? theme : theme.className;
+}, [theme]);
+
+return (
+  <Button
+    onClick={() =>
+      setTheme(theme === 'theme-default' ? darkTheme : 'theme-default')
+    }
+  >
+    Toggle theme
+  </Button>
+);
+```
+
+### Typography
+
+```javascript
+fonts: {
+    body: 'Inter, sans-serif',
+    heading: 'Inter, sans-serif',
+    mono: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+},
+fontSizes: {
+    1: '12px',
+    2: '14px',
+    3: '16px',
+    4: '20px',
+    5: '24px',
+    6: '32px',
+    7: '40px',
+    8: '64px',
+    9: '80px',
+    10: '96px',
+    11: '128px'
+  }
+```
+
+### Breakpoints
+
+A predefined set of commonly used breakpoints for responsive styling. View [Stitches](https://stitches.dev/docs/responsive-styles) for usage tips.
+
+```javascript
+media: {
+    bp1: '(min-width: 0px)',
+    bp2: '(min-width: 568px)',
+    bp3: '(min-width: 768px)',
+    bp4: '(min-width: 1024px)',
+    bp5: '(min-width: 1280px)',
+    bp6: '(min-width: 1536px)'
+  },
+```
+
+### Spacing
+
+The `space` key allows you to customize the global spacing and sizing scale. By default these spacing values can be referenced by the `padding`, `margin`, and `top`, `left`, `right`, `bottom` styles.
+
+```javascript
+space: {
+    1: '4px',
+    2: '8px',
+    3: '12px',
+    4: '16px',
+    5: '24px',
+    6: '32px',
+    7: '48px',
+    8: '64px',
+    9: '96px',
+    10: '128px',
+    11: '160px'
+  }
+```
+
+By default, Stitch-UI includes a comprehensive numeric spacing scale inspired by Tailwind CSS. The values are proportional, so 1 spacing unit is equal to 4px by default in common browsers.
+
+### Sizes
+
+The `sizes` key allows you to customize the global sizing of components. By default these sizes value can be referenced by the `width`, `height`, and `maxWidth`, `minWidth`, `maxHeight`, `minHeight` styles.
+
+```javascript
+sizes: {
+    1: '4px',
+    2: '8px',
+    3: '12px',
+    4: '16px',
+    5: '24px',
+    6: '32px',
+    7: '48px',
+    8: '64px',
+    9: '96px',
+    10: '128px',
+    11: '160px'
+  }
+```
+
+### Border radius
+
+Smooth corner radius values.
+
+```javascript
+ radii: {
+    1: '4px',
+    2: '6px',
+    3: '8px',
+    4: '12px',
+    round: '50%',
+    pill: '9999px'
+  }
+```
+
+### Utils
+
+Shorthand for commonly used props
+
+<table>
+  <tr>
+    <th>Prop</th>
+    <th>CSS Property</th>
+    <th>Theme Key</th>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>bg</code>, <code>backgroundColor</code>
+    </td>
+    <td>
+      <code>background-color</code>
+    </td>
+    <td>
+      <code>colors</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>m</code>, <code>margin</code>
+    </td>
+    <td>
+      <code>margin</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>mt</code>, <code>marginTop</code>
+    </td>
+    <td>
+      <code>margin-top</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>mr</code>, <code>marginRight</code>
+    </td>
+    <td>
+      <code>margin-right</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>mb</code>, <code>marginBottom</code>
+    </td>
+    <td>
+      <code>margin-bottom</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>ml</code>, <code>marginLeft</code>
+    </td>
+    <td>
+      <code>margin-left</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>size</code>
+    </td>
+    <td>
+      <code>width, height</code>
+    </td>
+    <td>
+      <code>size</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>br</code>, <code>borderRadius</code>
+    </td>
+    <td>
+      <code>border-radius</code>
+    </td>
+    <td>
+      <code>radii</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>p</code>, <code>padding</code>
+    </td>
+    <td>
+      <code>padding</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>pt</code>, <code>paddingTop</code>
+    </td>
+    <td>
+      <code>padding-top</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>pr</code>, <code>paddingRight</code>
+    </td>
+    <td>
+      <code>padding-right</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>pb</code>, <code>paddingBottom</code>
+    </td>
+    <td>
+      <code>padding-bottom</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>pl</code>, <code>paddingLeft</code>
+    </td>
+    <td>
+      <code>padding-left</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>px</code>
+    </td>
+    <td>
+      <code>padding-left, padding-right</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+  <tr />
+  <tr>
+    <td>
+      <code>py</code>
+    </td>
+    <td>
+      <code>padding-top, padding-bottom</code>
+    </td>
+    <td>
+      <code>space</code>
+    </td>
+  </tr>
+</table>
