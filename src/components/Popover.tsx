@@ -71,11 +71,7 @@ export const PopoverContent = React.forwardRef<
   <StyledContent sideOffset={0} {...props} ref={fowardedRef}>
     {children}
     {!hideArrow && (
-      <Box
-        css={{
-          color: props?.css?.backgroundColor ?? props?.css?.bg ?? '$panel'
-        }}
-      >
+      <Box css={{ color: props?.css?.backgroundColor ?? '$panel' }}>
         <PopoverPrimitive.Arrow
           width={11}
           height={5}
