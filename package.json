@@ -1,5 +1,5 @@
 {
-  "name": "@smurphdev/stitch-ui",
+  "name": "@stitch-ui/react",
   "version": "1.0.0",
   "private": false,
   "main": "lib/index.js",
@@ -17,7 +17,9 @@
     "react",
     "typescript"
   ],
-  "files": ["/lib"],
+  "files": [
+    "/lib"
+  ],
   "author": "smurphdev",
   "license": "MIT",
   "browserslist": {

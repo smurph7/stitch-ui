@@ -166,6 +166,9 @@ const StyledButton = styled('button', {
 
 const variants = { solid, unstyled, outline, ghost, link };
 
+/**
+ * Primary UI component for user interaction
+ */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
