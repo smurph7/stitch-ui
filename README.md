@@ -10,7 +10,9 @@ The theme is included in the library. This is still a work in progress and suppo
 import { Button } from '@stitch-ui/react';
 ```
 
-To get started, view the [docs](https:/main--618286c4f81e0e004ab0373c.chromatic.com).
+## Docs
+
+[Storybook docs](https://618286c4f81e0e004ab0373c-nqzqhtdvzm.chromatic.com/?path=/story/getting-started--page) can be found on chromatic
 
 ## Available Scripts
 
