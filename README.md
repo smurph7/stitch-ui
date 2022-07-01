@@ -12,7 +12,7 @@ import { Button } from '@stitch-ui/react';
 
 ## Docs
 
-[Storybook docs](https://618286c4f81e0e004ab0373c-nqzqhtdvzm.chromatic.com/?path=/story/getting-started--page) can be found on chromatic
+[Storybook docs](https://main--618286c4f81e0e004ab0373c.chromatic.com) can be found on chromatic
 
 ## Available Scripts
 
